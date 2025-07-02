@@ -16,7 +16,6 @@ CREATE TABLE customers
     last_name  TEXT
 );
 
-
 CREATE TABLE carts
 (
     id          SERIAL PRIMARY KEY NOT NULL,
@@ -24,7 +23,6 @@ CREATE TABLE carts
     total_price NUMERIC            NOT NULL,
     CONSTRAINT fk_customer FOREIGN KEY (customer_id) REFERENCES customers (id) ON DELETE CASCADE
 );
-
 
 CREATE TABLE restaurants
 (
@@ -34,7 +32,6 @@ CREATE TABLE restaurants
     image_url TEXT,
     phone     TEXT
 );
-
 
 CREATE TABLE menu_items
 (
@@ -47,7 +44,6 @@ CREATE TABLE menu_items
     CONSTRAINT fk_restaurant FOREIGN KEY (restaurant_id) REFERENCES restaurants (id) ON DELETE CASCADE
 );
 
-
 CREATE TABLE order_items
 (
     id           SERIAL PRIMARY KEY NOT NULL,
@@ -58,7 +54,6 @@ CREATE TABLE order_items
     CONSTRAINT fk_cart FOREIGN KEY (cart_id) REFERENCES carts (id) ON DELETE CASCADE,
     CONSTRAINT fk_menu_item FOREIGN KEY (menu_item_id) REFERENCES menu_items (id) ON DELETE CASCADE
 );
-
 
 CREATE TABLE authorities
 (
@@ -79,7 +74,6 @@ VALUES ('Burger King', '773 N Mathilda Ave, Sunnyvale, CA 94085',
        ('Fashion Wok', '163 S Murphy Ave, Sunnyvale, CA 94086',
         'https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1920,format=auto,quality=50/https://cdn.doordash.com/media/store%2Fheader%2F273997.jpg',
         '(408) 739-8866');
-
 
 INSERT INTO menu_items (description, image_url, name, price, restaurant_id)
 VALUES ('Made with white meat chicken, our Chicken Fries are coated in a light crispy breading seasoned with savory spices and herbs.',
