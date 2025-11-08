@@ -1,4 +1,8 @@
 package com.project.huskydasher.repository;
 
-public interface RestaurantRepository {
+import com.project.huskydasher.entity.RestaurantEntity;
+import org.springframework.data.repository.ListCrudRepository;
+
+public interface RestaurantRepository extends ListCrudRepository<RestaurantEntity, Long> {
 }
+
