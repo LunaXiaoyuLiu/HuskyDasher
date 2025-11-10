@@ -6,6 +6,7 @@ import com.project.huskydasher.model.MenuItemDto;
 import com.project.huskydasher.model.RestaurantDto;
 import com.project.huskydasher.repository.MenuItemRepository;
 import com.project.huskydasher.repository.RestaurantRepository;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class RestaurantService {
         this.menuItemRepository = menuItemRepository;
     }
 
+    @Cacheable("restaurants")
     public List<RestaurantDto> getRestaurants() {
         List<RestaurantEntity> restaurantEntities = restaurantRepository.findAll();
         List<MenuItemEntity> menuItemEntities = menuItemRepository.findAll();
